@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class GazaEatApplication {
 
     public static void main(String[] args) {
+        
         SpringApplication.run(GazaEatApplication.class, args);
+    
     }
 
 }
