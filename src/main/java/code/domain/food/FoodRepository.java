@@ -1,8 +1,10 @@
 package code.domain.food;
 
-import code.domain.region.JpaRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public class FoodRepository extends JpaRepository<FoodEntity, Long>
+@Repository
+public interface FoodRepository extends JpaRepository<FoodEntity, Long>
 {
     
     

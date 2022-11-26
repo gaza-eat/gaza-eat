@@ -1,6 +1,10 @@
 package code.domain.region;
 
-public class RegionRepository extends JpaRepository<RegionEntity, Integer>
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface RegionRepository extends JpaRepository<RegionEntity, Integer>
 {
 
     

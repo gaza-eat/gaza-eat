@@ -19,11 +19,21 @@
     </header>
     <section>
         <div>
+            <!--
             <form th:action="" th:method="post">
                 <input type="text" placeholder="ID(NICKNAME)" th:name="">
                 <input type="password" placeholder="PASSWORD" th:name="">
                 <input type="submit" value="Login">
             </form>
+            -->
+            
+            제가 한번 테스트 해봤습니다
+            <form th:action="@{/user/login_process}" th:method="post">
+                <input type="text" placeholder="ID(NICKNAME)" th:name="id">
+                <input type="password" placeholder="PASSWORD" th:name="pw">
+                <input type="submit" value="Login">
+            </form>
+            
         </div>
         <div>
 
