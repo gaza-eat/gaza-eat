@@ -1,59 +1,71 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <title>가자 EAT</title>
-        <link href="./bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body style="background-color: #B5DB92">
-        <div>
-            <header class="h-100 d-flex flex-row" style="background-color: #FFCB7C">
-                <div class="w-100 d-flex flex-row justify-content-between" style="margin-top: 10px; margin-bottom: 10px">
-                    <div class="w-25">
-                        <p style="margin-left: 10px">가자 EAT</p>
-                    </div>
-                    <input class="w-50" type="text" name="" placeholder="음식 검색">
-                    <div class="w-25 d-flex justify-content-end" style="margin-right: 50px">
-                        <button class="btn" th:href="login" style="margin-right: 20px ;background-color: #F2D3B7">Login</button>
-                        <button class="btn" th:href="signup" style="background-color: #FC9700">Sign up</button>
-                    </div>
-                </div>
-            </header>
-            <div class="row" style="width: 100%; height: 100%">
-                <div class="col-3" style="background-color: #FC9700">
-                    <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 10px; margin-right: 10px">
-                        <h1 class="display-4">음식이름</h1>
-                            <div class="list-group">
-                                <a href="#" class="list-group-item list-group-item-action active">지역1</a>
-                                <a href="#" class="list-group-item list-group-item-action">지역2</a>
-                                <a href="#" class="list-group-item list-group-item-action">지역3</a>
-                                <a href="#" class="list-group-item list-group-item-action">지역4</a>
-                            </div>
-                    </div>
-                </div>
-                <div class="col-5">
-                    <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 10px; margin-right: 5px">
-                        <h1 class="display-4">지역이름</h1>
-                        <p> 지역 설명 및 소개</p>
-                        <div class="row">
-                            <div class="gap-2 col-4 align-items-center">
-                                <a class="btn btn-primary w-50" href="#" role="button">음식1</a>
-                            </div>
-                            <div class="col-4 mx-auto">
-                                <a class="btn btn-primary w-50" href="#" role="button">음식2</a>
-                            </div>
-                            <div class="col-4 mx-auto">
-                                <a class="btn btn-primary w-50" href="#" role="button">음식3</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 5px; margin-right: 10px">
-                        <img src="" class="img-fluid">
-                    </div>
-                </div>
-            </section>
+<head>
+    <meta charset="UTF-8">
+    <title>가자 EAT</title>
+    <link href="./bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #B5DB92">
+<div>
+    <header class="h-100 d-flex flex-row" style="background-color: #FFCB7C">
+        <div class="w-100 d-flex flex-row justify-content-between" style="margin-top: 10px; margin-bottom: 10px">
+            <div class="w-25">
+                <p style="margin-left: 10px">가자 EAT</p>
+            </div>
+            <input class="w-50" type="text" name="" placeholder="음식 검색">
+            <div class="w-25 d-flex justify-content-end" style="margin-right: 50px">
+                <button class="btn" th:href="login" style="margin-right: 20px ;background-color: #F2D3B7">Login</button>
+                <button class="btn" th:href="signup" style="background-color: #FC9700">Sign up</button>
+            </div>
         </div>
-    </body>
+    </header>ㄱ
+    <div class="row" style="width: 100%; height: 100%">
+        <div class="col-3" style="background-color: #FC9700">
+            <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 10px; margin-right: 10px">
+                <h1 class="display-4" th:text="${food.name}">음식이름</h1>
+                <h5 th:text="${food.description}"></h5>
+                <table>
+                    <tr th:each="region : ${regions}" class="list-group">
+                        <td th:text="${region.name}" class="list-group-item list-group-item-action"></td>
+                    </tr>
+                    <!--                            <div class="list-group">-->
+                    <!--                                <a href="#" class="list-group-item list-group-item-action active">지역1</a>-->
+                    <!--                                <a href="#" class="list-group-item list-group-item-action">지역2</a>-->
+                    <!--                                <a href="#" class="list-group-item list-group-item-action">지역3</a>-->
+                    <!--                                <a href="#" class="list-group-item list-group-item-action">지역4</a>-->
+                    <!--                            </div>-->
+                </table>
+            </div>
+        </div>
+        <div class="col-5">
+            <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 10px; margin-right: 5px">
+                <h1 class="display-4" th:text="${region.name}"></h1>
+                <p th:text="${region.description}"></p>
+                <table>
+                    <tr th:each="food : ${foods}">
+                        <td th:text="${food.name}">
+                        </td>
+                    </tr>
+                </table>
+                <div class="row">
+                    <div class="gap-2 col-4 align-items-center">
+                        <a class="btn btn-primary w-50" href="#" role="button">음식1</a>
+                    </div>
+                    <div class="col-4 mx-auto">
+                        <a class="btn btn-primary w-50" href="#" role="button">음식2</a>
+                    </div>
+                    <div class="col-4 mx-auto">
+                        <a class="btn btn-primary w-50" href="#" role="button">음식3</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 5px; margin-right: 10px">
+                <img src="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 </html>

@@ -1,22 +1,9 @@
 package com.example.gazaeat.domain.food;
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.swing.plaf.synth.Region;
-
-import org.hibernate.annotations.ManyToAny;
 
 import com.example.gazaeat.domain.user.UserEntity;
-
 import lombok.Data;
+
+import javax.persistence.*;
 
 @Table(name="food")
 @Data @Entity

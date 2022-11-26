@@ -4,7 +4,6 @@ import com.example.gazaeat.domain.food.FoodEntity;
 import com.example.gazaeat.domain.region.RegionEntity;
 import lombok.Data;
 import javax.persistence.*;
-import lombok.Data;
 
 @Entity@Data
 @Table(name = "food_region")
