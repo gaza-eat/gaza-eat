@@ -169,7 +169,7 @@ public class FoodController {
             fe.setDescription("ㅁㄴㅇㄹ");
             foodRepository.save(fe);
             
-
+        
             // 지역
             RegionEntity re = new RegionEntity();
             re.setName("전남 전주");
@@ -185,19 +185,35 @@ public class FoodController {
 
             re = new RegionEntity();
             re.setName("전북 나주");
-            re.setDescription("");
+            re.setDescription("나주는 그릇");
             re.setImageUrl("https://www.google.com/url?sa=i&url=https%3A%2F%2Fkr.hotels.com%2Fgo%2Fsouth-korea%2Fkr-best-things-to-do-jeonju&psig=AOvVaw0dfJNsscRK8EqnA7u1HJzc&ust=1669524058373000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCLCS4vSDy_sCFQAAAAAdAAAAABAE");
             regionRepository.save(re);
 
             re = new RegionEntity();
-            re.setName("전남 전주");
-            re.setDescription("전남으로 놀러오슈~");
+            re.setName("충북 충주");
+            re.setDescription("충주 충주 충주 충주");
             re.setImageUrl("https://www.google.com/url?sa=i&url=https%3A%2F%2Fkr.hotels.com%2Fgo%2Fsouth-korea%2Fkr-best-things-to-do-jeonju&psig=AOvVaw0dfJNsscRK8EqnA7u1HJzc&ust=1669524058373000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCLCS4vSDy_sCFQAAAAAdAAAAABAE");
             regionRepository.save(re);
 
 
+            // 지역-음식
+            FoodRegionEntity fre = new FoodRegionEntity();
+            fre.setFood(new FoodEntity(2L));
+            fre.setRegion(new RegionEntity(2));
+            relationRepository.save(fre);
 
-        return null;
+            fre = new FoodRegionEntity();
+            fre.setFood(new FoodEntity(2L));
+            fre.setRegion(new RegionEntity(3));
+            relationRepository.save(fre);
+
+            fre = new FoodRegionEntity();
+            fre.setFood(new FoodEntity(2L));
+            fre.setRegion(new RegionEntity(4));
+            relationRepository.save(fre);
+
+        
+        return "success";
     }
 
 

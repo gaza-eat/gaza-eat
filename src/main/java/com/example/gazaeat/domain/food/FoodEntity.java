@@ -2,11 +2,12 @@ package com.example.gazaeat.domain.food;
 
 import com.example.gazaeat.domain.user.UserEntity;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Table(name="food")
-@Data @Entity
+@Data @Entity @NoArgsConstructor
 public class FoodEntity 
 {   
 
@@ -22,5 +23,10 @@ public class FoodEntity
     @ManyToOne
     @JoinColumn(name="register_no")
     UserEntity register;
+
+    public FoodEntity(Long no)
+    {
+        foodNo = no;
+    }
 
 }
