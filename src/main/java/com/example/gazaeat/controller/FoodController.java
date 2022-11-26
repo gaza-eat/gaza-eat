@@ -7,6 +7,8 @@ import com.example.gazaeat.domain.foodregion.FoodRegionRepository;
 import com.example.gazaeat.domain.region.RegionEntity;
 import com.example.gazaeat.domain.region.RegionRepository;
 import com.example.gazaeat.domain.user.UserEntity;
+import com.example.gazaeat.domain.user.UserRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,8 @@ public class FoodController {
     private final FoodRepository foodRepository;
     private final FoodRegionRepository relationRepository;
     private final RegionRepository regionRepository;
+    private final UserRepository userRepository;
+
     
     @PostMapping("search") // /food/search/음식명/몇번째 지역
     public String searchByName(String food,
@@ -32,7 +36,7 @@ public class FoodController {
             if(location == null) {
                 location = 0;
             }
-            
+            System.out.println(food);
             // 음식
             FoodEntity foodEntity = foodRepository.findByName(food);
             List<FoodRegionEntity> relationListByFoodNo = relationRepository.findByFoodNo(foodEntity.getFoodNo());
@@ -60,6 +64,8 @@ public class FoodController {
             model.addAttribute("region", regionEntity);
             model.addAttribute("foodList", foodList);
 
+            System.out.println(model);
+
             return "redirect:/location-list";
 
         }catch(Exception e)
@@ -83,6 +89,7 @@ public class FoodController {
 
             // 음식
             FoodEntity foodEntity = foodRepository.findByName(food);
+            System.out.println(food);
             List<FoodRegionEntity> relationListByFoodNo = relationRepository.findByFoodNo(foodEntity.getFoodNo());
 
             // 그 음식의 지역 리스트
@@ -138,6 +145,11 @@ public class FoodController {
     @ResponseBody
     public String test()
     {
+            UserEntity user = new UserEntity(1L);
+            user.setAccountId("더미");
+            user.setPassword("비밀번호");
+            userRepository.save(user);
+
             //  음식
             FoodEntity fe = new FoodEntity();
             fe.setName("불고기");
