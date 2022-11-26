@@ -3,10 +3,12 @@ package com.example.gazaeat.domain.foodregion;
 import com.example.gazaeat.domain.food.FoodEntity;
 import com.example.gazaeat.domain.region.RegionEntity;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import lombok.Data;
 
-@Entity@Data
+@Entity@Data @NoArgsConstructor
 @Table(name = "food_region")
 public class FoodRegionEntity {
 

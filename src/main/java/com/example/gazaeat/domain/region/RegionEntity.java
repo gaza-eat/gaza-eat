@@ -1,12 +1,13 @@
 package com.example.gazaeat.domain.region;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "region")
-@Data
+@Data @NoArgsConstructor
 public class RegionEntity {
     @Id
     @GeneratedValue
@@ -18,4 +19,9 @@ public class RegionEntity {
 
     @Column(name = "image_url")
     String imageUrl;
+
+    public RegionEntity(Integer no)
+    {
+        id=no;
+    }
 }
