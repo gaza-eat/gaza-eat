@@ -7,6 +7,8 @@ import com.example.gazaeat.domain.foodregion.FoodRegionRepository;
 import com.example.gazaeat.domain.region.RegionEntity;
 import com.example.gazaeat.domain.region.RegionRepository;
 import com.example.gazaeat.domain.user.UserEntity;
+import com.example.gazaeat.domain.user.UserRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,7 @@ public class FoodController {
     private final FoodRepository foodRepository;
     private final FoodRegionRepository relationRepository;
     private final RegionRepository regionRepository;
+    private final UserRepository userRepository;
     
     @PostMapping("search") // /food/search/음식명/몇번째 지역
     public String searchByName(String food,
@@ -60,7 +63,7 @@ public class FoodController {
             model.addAttribute("region", regionEntity);
             model.addAttribute("foodList", foodList);
 
-            return "redirect:/location-list";
+            return "location-list";
 
         }catch(Exception e)
         {
@@ -138,6 +141,12 @@ public class FoodController {
     @ResponseBody
     public String test()
     {
+
+            UserEntity user = new UserEntity();
+            user.setAccountId("더미");
+            user.setPassword("test");
+            userRepository.save(user);
+
             //  음식
             FoodEntity fe = new FoodEntity();
             fe.setName("불고기");
@@ -198,6 +207,21 @@ public class FoodController {
 
             // 지역-음식
             FoodRegionEntity fre = new FoodRegionEntity();
+            fre.setFood(new FoodEntity(1L));
+            fre.setRegion(new RegionEntity(2));
+            relationRepository.save(fre);
+
+            fre = new FoodRegionEntity();
+            fre.setFood(new FoodEntity(1L));
+            fre.setRegion(new RegionEntity(3));
+            relationRepository.save(fre);
+
+            fre = new FoodRegionEntity();
+            fre.setFood(new FoodEntity(1L));
+            fre.setRegion(new RegionEntity(4));
+            relationRepository.save(fre);
+
+
             fre.setFood(new FoodEntity(2L));
             fre.setRegion(new RegionEntity(2));
             relationRepository.save(fre);
@@ -211,6 +235,51 @@ public class FoodController {
             fre.setFood(new FoodEntity(2L));
             fre.setRegion(new RegionEntity(4));
             relationRepository.save(fre);
+
+            fre.setFood(new FoodEntity(3L));
+            fre.setRegion(new RegionEntity(2));
+            relationRepository.save(fre);
+
+            fre = new FoodRegionEntity();
+            fre.setFood(new FoodEntity(3L));
+            fre.setRegion(new RegionEntity(3));
+            relationRepository.save(fre);
+
+            fre = new FoodRegionEntity();
+            fre.setFood(new FoodEntity(3L));
+            fre.setRegion(new RegionEntity(4));
+            relationRepository.save(fre);
+
+
+            fre.setFood(new FoodEntity(4L));
+            fre.setRegion(new RegionEntity(2));
+            relationRepository.save(fre);
+
+            fre = new FoodRegionEntity();
+            fre.setFood(new FoodEntity(4L));
+            fre.setRegion(new RegionEntity(3));
+            relationRepository.save(fre);
+
+            fre = new FoodRegionEntity();
+            fre.setFood(new FoodEntity(4L));
+            fre.setRegion(new RegionEntity(4));
+            relationRepository.save(fre);
+
+            fre.setFood(new FoodEntity(5L));
+            fre.setRegion(new RegionEntity(2));
+            relationRepository.save(fre);
+
+            fre = new FoodRegionEntity();
+            fre.setFood(new FoodEntity(5L));
+            fre.setRegion(new RegionEntity(3));
+            relationRepository.save(fre);
+
+            fre = new FoodRegionEntity();
+            fre.setFood(new FoodEntity(5L));
+            fre.setRegion(new RegionEntity(4));
+            relationRepository.save(fre);
+
+
 
         
         return "success";
