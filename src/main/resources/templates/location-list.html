@@ -28,7 +28,7 @@
                 <h1 class="display-4" th:text="${food.name}">음식이름</h1>
                 <h5 th:text="${food.description}"></h5>
                 <table>
-                    <tr th:each="region : ${regions}" class="list-group">
+                    <tr th:each="region : ${regionList}" class="list-group">
                         <td th:text="${region.name}" class="list-group-item list-group-item-action"></td>
                     </tr>
                     <!--                            <div class="list-group">-->
@@ -46,7 +46,7 @@
                 <img th:src="@{${region.imageUrl}}"/>
                 <p th:text="${region.description}"></p>
                 <table>
-                    <tr th:each="food, foodStat : ${foods}">
+                    <tr th:each="food, foodStat : ${foodList}">
                         <td th:text="${food.name}" th:onclick="|location.href=food/${food.name}/${foodStat.index}|"></td>
 <!--                        <td>-->
 <!--                            <img th:src="@{${food.imageUrl}}"/>-->
