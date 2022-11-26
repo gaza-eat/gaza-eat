@@ -18,8 +18,8 @@
                 <input class="btn" type="submit" style="margin-right: 20px ;background-color: #FFFFFF" value="검색">
             </form>
             <div class="w-25 d-flex justify-content-end" style="margin-right: 50px">
-                <button class="btn" th:href="login" style="margin-right: 20px ;background-color: #F2D3B7">Login</button>
-                <button class="btn" th:href="signup" style="background-color: #FC9700">Sign up</button>
+                <button class="btn" th:onclick="|location.href='/login'|" style="margin-right: 20px ;background-color: #F2D3B7">Login</button>
+                <button class="btn" th:onclick="|location.href='/signup'|" style="background-color: #FC9700">Sign up</button>
             </div>
         </div>
     </header>
