@@ -14,8 +14,8 @@
                 <p style="margin-left: 10px">가자 EAT</p>
             </div>
             <form th:action="|/food/search|" method="post">
-                <input class="w-50" type="text" name="food" placeholder="음식 검색"/>
-                <input class="btn" type="submit" style="margin-right: 20px ;background-color: #FFFFFF">
+                <input class="w-50" type="text" name="food" placeholder="음식 검색">
+                <input class="btn" type="submit" style="margin-right: 20px ;background-color: #FFFFFF" value="검색">
             </form>
             <div class="w-25 d-flex justify-content-end" style="margin-right: 50px">
                 <button class="btn" th:onclick="|location.href='/login'|" style="margin-right: 20px ;background-color: #F2D3B7">Login</button>
@@ -25,8 +25,8 @@
     </header>
     <section>
         <div class="d-flex" style="margin-left: 50px; margin-right: 50px; margin-top: 20px;">
-            <button class="btn" th:onclick="|location.href='/food-form'|" style="margin-right: 20px; background-color: #FC9700">지역 등록</button>
-            <button class="btn" th:onclick="|location.href='/region-form'|" style="margin-right: 20px; background-color: #FC9700">음식 등록</button>
+            <button class="btn" th:onclick="|location.href='/region-form'|" style="margin-right: 20px; background-color: #FC9700">지역 등록</button>
+            <button class="btn" th:onclick="|location.href='/food-form'|" style="margin-right: 20px; background-color: #FC9700">음식 등록</button>
             <button class="btn" th:onclick="|location.href='/region-food-form'|" style="margin-right: 20px; background-color: #FC9700">지역음식 등록</button>
         </div>
         <div class="" style="height: 400px; margin-left: 50px; margin-right: 50px; margin-top: 20px">
