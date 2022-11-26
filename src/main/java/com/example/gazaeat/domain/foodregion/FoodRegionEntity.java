@@ -1,12 +1,16 @@
 package com.example.gazaeat.domain.foodregion;
 
-import javax.persistence.*;
 import com.example.gazaeat.domain.food.FoodEntity;
 import com.example.gazaeat.domain.region.RegionEntity;
+import lombok.Data;
 
-public class FoodRegionEntity 
-{
-    @Id @Column(name="user_no")
+import javax.persistence.*;
+
+@Entity
+@Table(name = "food_region")
+@Data
+public class FoodRegionEntity {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long relationNo;
 
@@ -17,5 +21,4 @@ public class FoodRegionEntity
     @JoinColumn(name = "food_no")
     @ManyToOne(fetch = FetchType.EAGER)
     FoodEntity food;
-
 }

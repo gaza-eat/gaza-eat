@@ -1,10 +1,8 @@
 package com.example.gazaeat.domain.food;
 
-import com.example.gazaeat.domain.region.JpaRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public class FoodRepository extends JpaRepository<FoodEntity, Long>
-{
-    
-    
+public interface FoodRepository extends JpaRepository<FoodEntity, Long> {
 
+    FoodEntity findByName(String name);
 }

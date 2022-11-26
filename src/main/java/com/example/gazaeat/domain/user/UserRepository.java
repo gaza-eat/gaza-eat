@@ -1,11 +1,7 @@
 package com.example.gazaeat.domain.user;
 
-import com.example.gazaeat.domain.region.JpaRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public class UserRepository extends JpaRepository<UserEntity, Long>
-{
-    
-
-
-    
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
+    UserEntity findByAccountId(String accountId);
 }
