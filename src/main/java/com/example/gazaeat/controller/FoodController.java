@@ -1,14 +1,5 @@
 package com.example.gazaeat.controller;
 
-import lombok.RequiredArgsConstructor;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
 import com.example.gazaeat.domain.food.FoodEntity;
 import com.example.gazaeat.domain.food.FoodRepository;
 import com.example.gazaeat.domain.foodregion.FoodRegionEntity;
@@ -16,6 +7,13 @@ import com.example.gazaeat.domain.foodregion.FoodRegionRepository;
 import com.example.gazaeat.domain.region.RegionEntity;
 import com.example.gazaeat.domain.region.RegionRepository;
 import com.example.gazaeat.domain.user.UserEntity;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -25,10 +23,15 @@ public class FoodController {
     private final FoodRegionRepository relationRepository;
     private final RegionRepository regionRepository;
     
-    @GetMapping("/search/{food}/{location}") // /food/search/음식명/몇번째 지역
-    public String searchByName(@PathVariable String food, @PathVariable Integer location, Model model)
+    @PostMapping("search") // /food/search/음식명/몇번째 지역
+    public String searchByName(String food,
+                               @RequestParam(name = "location", required = false) Integer location,
+                               Model model)
     {
         try{
+            if(location == null) {
+                location = 0;
+            }
             
             // 음식
             FoodEntity foodEntity = foodRepository.findByName(food);
@@ -57,7 +60,55 @@ public class FoodController {
             model.addAttribute("region", regionEntity);
             model.addAttribute("foodList", foodList);
 
-            return "/location-list";
+            return "redirect:/location-list";
+
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+
+            return "redirect:/";
+        }
+
+    }
+
+    @GetMapping("{food}/{location}") // /food/search/음식명/몇번째 지역
+    public String searchByName2(@PathVariable String food,
+                                @PathVariable Integer location,
+                               Model model)
+    {
+        try{
+            if(location == null) {
+                location = 0;
+            }
+
+            // 음식
+            FoodEntity foodEntity = foodRepository.findByName(food);
+            List<FoodRegionEntity> relationListByFoodNo = relationRepository.findByFoodNo(foodEntity.getFoodNo());
+
+            // 그 음식의 지역 리스트
+            List<RegionEntity> regionList = new ArrayList<>();
+            for(var e : relationListByFoodNo)
+            {
+                regionList.add(e.getRegion());
+            }
+
+            // 지역
+            var regionEntity = regionList.get(location);
+            List<FoodRegionEntity> relListByRegionNo = relationRepository.findByRegionNo(regionEntity.getId());
+
+            List<FoodEntity> foodList = new ArrayList<>();
+            for(var e : relListByRegionNo)
+            {
+                foodList.add(e.getFood());
+            }
+
+            model.addAttribute("food", foodEntity);
+            model.addAttribute("regionList", regionList);
+
+            model.addAttribute("region", regionEntity);
+            model.addAttribute("foodList", foodList);
+
+            return "redirect:/location-list";
 
         }catch(Exception e)
         {

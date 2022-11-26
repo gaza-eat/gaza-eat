@@ -42,8 +42,8 @@
                 <h1 class="display-4" th:text="${region.name}"></h1>
                 <p th:text="${region.description}"></p>
                 <table>
-                    <tr th:each="food : ${foods}">
-                        <td th:text="${food.name}">
+                    <tr th:each="food, foodStat : ${foods}">
+                        <td th:text="${food.name}" th:onclick="|location.href=food/${food.name}/${foodStat.index}|">
                         </td>
                     </tr>
                 </table>
