@@ -26,11 +26,11 @@
              style="width: 1920px; height: 1080px; margin-top: 200px;">
             <div class="d-flex row justify-content-center align-items-center"
                  style="width: 700px; background-color: #FC9700; border-radius: 20px">
-                <form class="w-75 d-flex row justify-content-center" action="" th:method="post">
+                <form class="w-75 d-flex row justify-content-center" th:action="food" th:method="post">
                     <input class="form-control row" type="text" placeholder="음식 이름" style="margin-top: 30px"
-                           th:name="regionName">
+                           th:name="name">
                     <textarea class="form-control row" type="text" placeholder="음식 설명"
-                              style="height: 300px; margin-top: 10px" th:name="regionDesc"></textarea>
+                              style="height: 300px; margin-top: 10px" th:name="description"></textarea>
                     <input class="btn btn-light row" type="submit"
                            style="margin-top: 10px; margin-bottom: 30px;background-color: #F2D3B7; border-color: #F2D3B7"
                            value="음식 등록">
