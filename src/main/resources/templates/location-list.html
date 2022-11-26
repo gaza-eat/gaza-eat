@@ -46,8 +46,8 @@
                 <img th:src="@{${region.imageUrl}}"/>
                 <p th:text="${region.description}"></p>
                 <table>
-                    <tr th:each="food, foodStat : ${foodList}">
-                        <td th:text="${food.name}" th:onclick="|location.href=food/${food.name}/${foodStat.index}|"></td>
+                    <tr th:each="f, fStat : ${foods}">
+                        <td th:text="${f.name}" th:onclick="|location.href=food/${f.name}/${fStat}|"></td>
 <!--                        <td>-->
 <!--                            <img th:src="@{${food.imageUrl}}"/>-->
 <!--                        </td>-->
