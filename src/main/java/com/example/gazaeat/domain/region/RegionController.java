@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.EntityNotFoundException;
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,14 +27,16 @@ public class RegionController {
     @PostMapping
     public String save(RegionEntity region, MultipartFile img) throws IOException {
 
-        String path = System.getProperty("user.dir") + "/src/main/resources/static/files/";
-        UUID uuid = UUID.randomUUID();
+        String path = System.getProperty("user.dir") + "/src/main/resources/static/test/";
+        String file = UUID.randomUUID() + img.getOriginalFilename();
 
-        File saveFile = new File(path, uuid.toString());
-        img.transferTo(saveFile);
-        region.setImageUrl("/files/" + uuid.toString());
+        //File saveFile = new File(path, uuid.toString());
+       // img.transferTo(saveFile);
+        Path path2 = Paths.get(path+file);
+        Files.copy(img.getInputStream(), path2, StandardCopyOption.REPLACE_EXISTING);
+        region.setImageUrl( "test/"+ file);
         regionRepository.save(region);
-        return "/";
+        return "redirect:/";
     }
 
     @GetMapping("{id}")

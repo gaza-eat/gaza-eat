@@ -17,8 +17,11 @@
                 <input class="btn" type="submit" style="margin-right: 20px ;background-color: #FFFFFF" value="검색">
             </form>
             <div class="w-25 d-flex justify-content-end" style="margin-right: 50px">
-                <button class="btn" th:onclick="|location.href='/login'|" style="margin-right: 20px ;background-color: #F2D3B7">Login</button>
-                <button class="btn" th:onclick="|location.href='/signup'|" style="background-color: #FC9700">Sign up</button>
+                <button class="btn" th:onclick="|location.href='/login'|"
+                        style="margin-right: 20px ;background-color: #F2D3B7">Login
+                </button>
+                <button class="btn" th:onclick="|location.href='/signup'|" style="background-color: #FC9700">Sign up
+                </button>
             </div>
         </div>
     </header>
@@ -28,6 +31,7 @@
             <div class="d-flex row justify-content-center align-items-center"
                  style="width: 700px; background-color: #FC9700; border-radius: 20px">
 
+<<<<<<< HEAD
                     <form class="w-75 d-flex row justify-content-center" th:action="food" th:method="post">
                         <h1 class="justify-content-center row" style="margin-top: 30px">음식 등록</h1>
                         <input class="form-control row" type="text" placeholder="음식 이름" style="margin-top: 10px"
@@ -39,6 +43,19 @@
                                style="margin-top: 10px; margin-bottom: 30px;background-color: #F2D3B7; border-color: #F2D3B7"
                                value="등록">
                     </form>
+=======
+                <form class="w-75 d-flex row justify-content-center" th:action="food" method="post">
+                    <h1 class="justify-content-center row" style="margin-top: 30px">음식 등록</h1>
+                    <input class="form-control row" type="text" placeholder="음식 이름" style="margin-top: 10px"
+                           th:name="name">
+
+                    <textarea class="form-control row" type="text" placeholder="음식 설명"
+                              style="height: 300px; margin-top: 10px" th:name="description"></textarea>
+                    <input class="btn btn-light row" type="submit"
+                           style="margin-top: 10px; margin-bottom: 30px;background-color: #F2D3B7; border-color: #F2D3B7"
+                           value="등록">
+                </form>
+>>>>>>> d2536d59aec524f42c26397e0bece4602d8c7ae4
             </div>
         </div>
     </section>
