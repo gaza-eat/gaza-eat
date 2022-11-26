@@ -15,4 +15,10 @@ public class UserEntity {
     Long id;
     String accountId;
     String password;
+
+    public UserEntity(Long no)
+    {
+        id = no;
+    }
+
 }
