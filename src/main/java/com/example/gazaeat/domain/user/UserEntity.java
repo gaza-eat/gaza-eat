@@ -1,4 +1,4 @@
-package code.domain.user;
+package com.example.gazaeat.domain.user;
 
 public class UserEntity {
 

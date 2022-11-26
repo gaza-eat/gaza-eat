@@ -1,12 +1,11 @@
-package code.domain.food;
+package com.example.gazaeat.domain.food;
+
+import com.example.gazaeat.domain.user.UserEntity;
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.swing.plaf.synth.Region;
-
-import code.domain.region.RegionEntity;
-import code.domain.user.UserEntity;
-import lombok.Data;
 
 @Table(name="food") @Data
 public class FoodEntity 

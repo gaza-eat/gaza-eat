@@ -1,4 +1,4 @@
-package code.domain.foodregion;
+package com.example.gazaeat.domain.foodregion;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

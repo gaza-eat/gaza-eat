@@ -1,4 +1,4 @@
-package code.domain.region;
+package com.example.gazaeat.domain.region;
 
 import java.util.List;
 
@@ -8,8 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
-import code.domain.food.FoodEntity;
-import code.domain.foodregion.FoodRegionEntity;
+import com.example.gazaeat.domain.foodregion.FoodRegionEntity;
 import lombok.Data;
 
 @Entity

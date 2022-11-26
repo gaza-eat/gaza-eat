@@ -1,8 +1,8 @@
-package code.domain.foodregion;
+package com.example.gazaeat.domain.foodregion;
 
 import javax.persistence.*;
-import code.domain.food.FoodEntity;
-import code.domain.region.RegionEntity;
+import com.example.gazaeat.domain.food.FoodEntity;
+import com.example.gazaeat.domain.region.RegionEntity;
 
 public class FoodRegionEntity 
 {
