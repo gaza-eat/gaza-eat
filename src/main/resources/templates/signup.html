@@ -25,9 +25,9 @@
             <input type="submit" value="Sign Up">
         </form>
         -->
-        <form th:action="@{/user/signup_process}" th:method="post">
-            <input type="text" placeholder="ID(NICKNAME)" th:name="id">
-            <input type="password" placeholder="PASSWORD" th:name="pw">
+        <form th:action="@{/signup}" th:method="post">
+            <input type="text" placeholder="ID(NICKNAME)" th:name="accountId">
+            <input type="password" placeholder="PASSWORD" th:name="password">
             <input type="submit" value="Sign Up">
         </form>
 

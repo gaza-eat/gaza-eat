@@ -1,4 +1,4 @@
-package code.domain.food;
+package com.example.gazaeat.domain.food;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -14,13 +14,12 @@ import javax.swing.plaf.synth.Region;
 
 import org.hibernate.annotations.ManyToAny;
 
-import code.domain.foodregion.FoodRegionEntity;
-import code.domain.region.RegionEntity;
-import code.domain.user.UserEntity;
+import com.example.gazaeat.domain.user.UserEntity;
+
 import lombok.Data;
 
-@Entity
-@Table(name="food") @Data
+@Table(name="food")
+@Data @Entity
 public class FoodEntity 
 {   
 
@@ -28,13 +27,10 @@ public class FoodEntity
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     Long foodNo; // 음식 코드
 
+    String name;
+
     @Column(name="description")
     String description; // 음식 설명
-
-    @Column(name="date")
-    String date; // 날짜
-    @Column(name="category")
-    String category; // 카테고리
 
     @ManyToOne
     @JoinColumn(name="register_no")
