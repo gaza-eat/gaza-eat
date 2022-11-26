@@ -20,7 +20,6 @@ public class RegionController {
     @PostMapping
     public String save(RegionEntity region){
         regionRepository.save(region);
-
         return "/";
     }
 
