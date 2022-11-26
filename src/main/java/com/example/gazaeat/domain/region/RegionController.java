@@ -31,7 +31,7 @@ public class RegionController {
         img.transferTo(saveFile);
         region.setImageUrl("/files/" + uuid.toString());
         regionRepository.save(region);
-        return "/";
+        return "redirect/";
     }
 
     @GetMapping("{id}")

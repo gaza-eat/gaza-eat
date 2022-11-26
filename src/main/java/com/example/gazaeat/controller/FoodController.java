@@ -127,7 +127,7 @@ public class FoodController {
     public String save(FoodEntity food) {
 
         foodRepository.save(food);
-        return "redirect:/food";
+        return "redirect:/";
     }
 
     @GetMapping("{name}")
