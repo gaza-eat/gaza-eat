@@ -17,6 +17,11 @@ public class UserEntity {
     String accountId;
     String password;
 
+    public UserEntity(String accountId, String password) {
+        this.accountId = accountId;
+        this.password = password;
+    }
+
     public UserEntity(Long no)
     {
         id = no;
