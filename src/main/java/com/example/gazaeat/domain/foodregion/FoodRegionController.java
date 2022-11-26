@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public class FoodRegionController {
 
-    @GetMapping
+    @GetMapping("")
     public String getByName(@RequestParam(name = "region") String region, Model model) {
         //model.addAttribute("food", food);
 
