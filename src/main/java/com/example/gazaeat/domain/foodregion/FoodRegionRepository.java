@@ -14,5 +14,9 @@ public interface FoodRegionRepository extends JpaRepository<FoodRegionEntity, Lo
     //List<FoodRegionEntity> findAllByFood_no(Long foodNo);
 
     @Query(value="SELECT * FROM food_region WHERE food_no=:no", nativeQuery=true)
-    List<FoodRegionEntity> findByFoodName(@Param("no") Long no);
+    List<FoodRegionEntity> findByFoodNo(@Param("no") Long no);
+
+    @Query(value="SELECT * FROM food_region WHERE region_no=:no", nativeQuery=true)
+    List<FoodRegionEntity> findByRegionNo(@Param("no") Integer no);
+
 }
