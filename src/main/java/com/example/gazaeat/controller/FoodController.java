@@ -64,9 +64,7 @@ public class FoodController {
             model.addAttribute("region", regionEntity);
             model.addAttribute("foodList", foodList);
 
-            System.out.println(model);
-
-            return "redirect:/location-list";
+            return "location-list";
 
         }catch(Exception e)
         {
@@ -115,7 +113,7 @@ public class FoodController {
             model.addAttribute("region", regionEntity);
             model.addAttribute("foodList", foodList);
 
-            return "redirect:/location-list";
+            return "location-list";
 
         }catch(Exception e)
         {

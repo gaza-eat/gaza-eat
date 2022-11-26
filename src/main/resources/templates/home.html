@@ -18,16 +18,16 @@
                 <input class="btn" type="submit" style="margin-right: 20px ;background-color: #FFFFFF">
             </form>
             <div class="w-25 d-flex justify-content-end" style="margin-right: 50px">
-                <button class="btn" th:href="login" style="margin-right: 20px ;background-color: #F2D3B7">Login</button>
-                <button class="btn" th:href="signup" style="background-color: #FC9700">Sign up</button>
+                <button class="btn" th:onclick="|location.href='/login'|" style="margin-right: 20px ;background-color: #F2D3B7">Login</button>
+                <button class="btn" th:onclick="|location.href='/signup'|" style="background-color: #FC9700">Sign up</button>
             </div>
         </div>
     </header>
     <section>
         <div class="d-flex" style="margin-left: 50px; margin-right: 50px; margin-top: 20px;">
-            <button class="btn" th:href="signup" style="margin-right: 20px; background-color: #FC9700">지역 등록</button>
-            <button class="btn" th:href="signup" style="margin-right: 20px; background-color: #FC9700">음식 등록</button>
-            <button class="btn" th:href="signup" style="margin-right: 20px; background-color: #FC9700">지역음식 등록</button>
+            <button class="btn" th:onclick="|location.href='/food-form'|" style="margin-right: 20px; background-color: #FC9700">지역 등록</button>
+            <button class="btn" th:onclick="|location.href='/region-form'|" style="margin-right: 20px; background-color: #FC9700">음식 등록</button>
+            <button class="btn" th:onclick="|location.href='/region-food-form'|" style="margin-right: 20px; background-color: #FC9700">지역음식 등록</button>
         </div>
         <div class="" style="height: 400px; margin-left: 50px; margin-right: 50px; margin-top: 20px">
             <img src="https://media.discordapp.net/attachments/614802404419829771/1045929441894858783/3.png?width=720&height=301"
